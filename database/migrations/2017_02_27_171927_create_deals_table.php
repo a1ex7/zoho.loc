@@ -17,13 +17,7 @@ class CreateDealsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->date('date');
-            $table->enum('status', [
-                'New',
-                'Assigned',
-                'In Progress',
-                'Converted',
-                'Recycled'
-            ]);
+            $table->enum('status', \App\Deal::getStatusList());
             $table->timestamps();
         });
     }

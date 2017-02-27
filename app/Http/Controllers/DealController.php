@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Deal;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class DealController extends Controller
 {
@@ -14,7 +15,9 @@ class DealController extends Controller
      */
     public function index()
     {
-        return view('deals.index');
+        $deals = Deal::all();
+
+        return view('deals.index', ['deals' => $deals]);
     }
 
     /**
@@ -35,7 +38,17 @@ class DealController extends Controller
      */
     public function store(Request $request)
     {
-        dump($request);
+        $this->validate($request, [
+            'name' => 'required|max:255',
+            'date' => 'required|date',
+            'status' => 'required|in:' . implode(',', Deal::getStatusList()),
+        ]);
+
+        Deal::create($request->all());
+
+        Session::flash('message', 'Successfully created deals!');
+
+        return redirect('deals');
     }
 
     /**
