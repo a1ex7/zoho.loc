@@ -21,7 +21,7 @@ Route::pattern('id', '[0-9]+');
 
 Route::get('/', function () {
     return redirect(route('deals.index'));
-});
+})->name('home');
 
 
 /* CRUD Deals */

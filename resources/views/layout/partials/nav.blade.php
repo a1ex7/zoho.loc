@@ -11,9 +11,9 @@
         </div>
         <div id="navbar" class="collapse navbar-right navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#about">Deals</a></li>
-                <li><a href="#contact">Create New Deal</a></li>
+                <li class="active"><a href="{{ route('home')}}">Home</a></li>
+                <li><a href="{{ route('deals.index')}}">Deals</a></li>
+                <li><a href="{{ route('deals.create')}}">Create New Deal</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
