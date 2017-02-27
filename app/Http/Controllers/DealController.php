@@ -24,7 +24,7 @@ class DealController extends Controller
      */
     public function create()
     {
-        //
+        return view('deals.create');
     }
 
     /**
@@ -35,7 +35,7 @@ class DealController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dump($request);
     }
 
     /**

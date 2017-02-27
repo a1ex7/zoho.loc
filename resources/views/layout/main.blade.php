@@ -17,14 +17,12 @@
 <body>
 @include('layout.partials.nav')
 
-<div class="container-fluid">
-    @yield('content')
-</div>
+@yield('content')
 
 <footer class="footer navbar-fixed-bottom">
     <div class="container">
         <p class="text-muted">Copyright &copy;
-            2015 {!! (Carbon\Carbon::now()->year == "2015") ? "" : "- ".Carbon\Carbon::now()->year !!} </p>
+            {!! Carbon\Carbon::now()->year !!} </p>
     </div>
 </footer>
 

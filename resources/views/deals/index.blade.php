@@ -1,9 +1,11 @@
 @extends('layout.main')
 
 @section('title')
-    Deals
+Deals
 @endsection
 
 @section('content')
-    Deals
+<div class="container">
+    {{ Html::link(route('deals.create'), 'Add Deal', ['class' => 'btn btn-info']) }}
+</div>
 @endsection
