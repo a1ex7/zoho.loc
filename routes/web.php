@@ -11,6 +11,21 @@
 |
 */
 
+/**
+ * Route patterns
+ */
+Route::pattern('id', '[0-9]+');
+
+
+/* Main page */
+
 Route::get('/', function () {
-    return view('welcome');
+    return redirect(route('deals.index'));
 });
+
+
+/* CRUD Deals */
+
+Route::resource('deals', 'DealController', ['only' => [
+    'index', 'create', 'store'
+]]);
