@@ -12,4 +12,20 @@ class Deal extends Model
      * @var array
      */
     protected $fillable = ['name', 'date', 'status'];
+
+
+    /* Enum statuses for Deals*/
+
+    protected static $statuses = [
+        'New',
+        'Assigned',
+        'In Progress',
+        'Converted',
+        'Recycled'
+    ];
+
+    public static function getStatusList() {
+
+        return static::$statuses;
+    }
 }
