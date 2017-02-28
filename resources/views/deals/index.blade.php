@@ -13,6 +13,11 @@ Deals
         <div class="alert alert-info">{{ Session::get('message') }}</div>
     @endif
 
+    <!-- will be used to show errors -->
+    @if (Session::has('error'))
+        <div class="alert alert-danger">{{ Session::get('error') }}</div>
+    @endif
+
     <table class="table table-striped table-bordered">
         <thead>
         <tr>

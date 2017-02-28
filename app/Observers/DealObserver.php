@@ -4,6 +4,7 @@ namespace App\Observers;
 
 use App\Deal;
 use App\Services\ZohoService;
+use Illuminate\Support\Facades\Session;
 
 /**
  * Class DealObserver
@@ -26,10 +27,17 @@ class DealObserver
      */
     public function saved(Deal $deal)
     {
-        $this->zoho->setTask(
+        $records = $this->zoho->setTask(
             'Первый звонок: ' . $deal->name,
-            $deal->date,
+            null,
             $deal->status
         );
+
+        if ($records[1]->isInserted()) {
+            Session::flash('message', 'Successfully add Task to CRM');
+        } else {
+            Session::flash('error', 'Error adding Task to CRM');
+        }
+
     }
 }

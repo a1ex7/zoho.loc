@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Deal;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
 
 /**
  * Class DealController
@@ -49,8 +48,6 @@ class DealController extends Controller
         ]);
 
         Deal::create($request->all());
-
-        Session::flash('message', 'Successfully created deals!');
 
         return redirect('deals');
     }
