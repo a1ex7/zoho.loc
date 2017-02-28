@@ -29,7 +29,7 @@ class DealObserver
     {
         $records = $this->zoho->setTask(
             'Первый звонок: ' . $deal->name,
-            null,
+            $deal->date,
             $deal->status
         );
 
