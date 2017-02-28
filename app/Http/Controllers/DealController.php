@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Deal;
-use App\Services\ZohoService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -41,7 +40,7 @@ class DealController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, ZohoService $zoho)
+    public function store(Request $request)
     {
         $this->validate($request, [
             'name' => 'required|max:255',
